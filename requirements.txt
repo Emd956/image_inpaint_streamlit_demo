@@ -3,3 +3,7 @@ streamlit
 opencv-python-headless
 pillow
 streamlit-drawable-canvas
+pathlib
+base64
+PIL
+io
