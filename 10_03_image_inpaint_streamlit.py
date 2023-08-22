@@ -47,8 +47,8 @@ if uploaded_file is not None:
 
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 5)
     h, w = image.shape[:2]
-    if w > 800:
-        h_, w_ = int(h * 800 / w), 800
+    if w > 400:
+        h_, w_ = int(h * 400 / w), 400
     else:
         h_, w_ = h, w
 
@@ -57,26 +57,13 @@ if uploaded_file is not None:
         fill_color='white',
         stroke_width=stroke_width,
         stroke_color='black',
-        background_image=Image.open(uploaded_file).resize((h, w)),  # Problema potencial
+        background_image=Image.open(uploaded_file).resize((h_, w_)),
         update_streamlit=True,
         height=h_,
         width=w_,
         drawing_mode='freedraw',
         key="canvas",
     )
-
-    
-    # canvas_result = st_canvas(
-    #     fill_color='white',
-    #     stroke_width=stroke_width,
-    #     stroke_color='black',
-    #     background_image=Image.open(uploaded_file).resize((h_, w_)),
-    #     update_streamlit=True,
-    #     height=h_,
-    #     width=w_,
-    #     drawing_mode='freedraw',
-    #     key="canvas",
-    # )
     stroke = canvas_result.image_data
 
     if stroke is not None:
