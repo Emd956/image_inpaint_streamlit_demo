@@ -45,6 +45,9 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
 
+    # Debugging: Print the size of the loaded image
+    st.write("Loaded image size:", image.shape)
+
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 5)
     h, w = image.shape[:2]
     if w > 600:
