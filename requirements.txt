@@ -4,4 +4,3 @@ opencv-python-headless
 pillow
 streamlit-drawable-canvas
 pathlib
-io
