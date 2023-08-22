@@ -57,13 +57,26 @@ if uploaded_file is not None:
         fill_color='white',
         stroke_width=stroke_width,
         stroke_color='black',
-        background_image=Image.open(uploaded_file).resize((h_, w_)),
+        background_image=Image.open(uploaded_file).resize((h, w)),  # Problema potencial
         update_streamlit=True,
         height=h_,
         width=w_,
         drawing_mode='freedraw',
         key="canvas",
     )
+
+    
+    # canvas_result = st_canvas(
+    #     fill_color='white',
+    #     stroke_width=stroke_width,
+    #     stroke_color='black',
+    #     background_image=Image.open(uploaded_file).resize((h_, w_)),
+    #     update_streamlit=True,
+    #     height=h_,
+    #     width=w_,
+    #     drawing_mode='freedraw',
+    #     key="canvas",
+    # )
     stroke = canvas_result.image_data
 
     if stroke is not None:
